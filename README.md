@@ -12,18 +12,11 @@ A self-hosted n8n workflow that automates the full B2B lead pipeline — from fi
 
 ### The Problem
 
-Every inbound lead required a human to read, classify, score, and route it. Errors, delays, and dropped inquiries were the norm.
+The intake form was receiving a flood of inquiries — most of them spam, noise, or barely coherent requests. Manual triage became impossible, and real paying clients were getting buried in the mess. There was also no way to recover leads who started the form but never finished it.
 
 ### What I Built
 
-A **65-node** n8n workflow running on **Oracle Cloud / PostgreSQL** that:
-
-- **Classifies and scores** inbound leads with **LLM evaluation (Groq)**: relevance, intent, budget signals
-- **Routes** inquiries via **email triage**: auto-tags, auto-replies for low-fit leads, priority flags for hot leads
-- **Updates the CRM (Notion)** automatically: new lead page, status, score, classification notes
-- **Detects duplicates** across multiple intake channels
-- **Sends real-time alerts** via **Telegram** for high-priority leads
-- **Handles fallback and recovery**: failed LLM calls retry, broken webhooks don't crash the pipeline
+A **65-node** n8n workflow running on **Oracle Cloud / PostgreSQL** that classifies and scores inbound leads with LLM evaluation (Groq) for relevance, intent, and budget signals, routes inquiries via email triage with auto-tags for low-fit leads and priority flags for hot ones, updates the CRM (Notion) automatically with status, score, and classification notes, detects duplicates across multiple intake channels, sends real-time Telegram alerts for serious leads, handles fallback and recovery with automatic LLM retries and crash-proof webhooks, and follows up on abandoned forms with an automated recovery mechanism that brings back leads who dropped off before completing the funnel.
 
 ### Stack
 
@@ -43,18 +36,11 @@ Un workflow n8n self-hosted che automatizza l'intera pipeline lead B2B — dal p
 
 ### Il Problema
 
-Ogni lead in ingresso richiedeva una persona per leggere, classificare, assegnare un punteggio e instradare. Errori, ritardi e lead persi erano la norma.
+Il form di contatto riceveva un diluvio di richieste — per lo più spam, rumore o richieste confuse. Il triage manuale era diventato insostenibile e i clienti paganti veri finivano sepolti nel casino. Inoltre non c'era modo di recuperare i lead che iniziavano il form senza completarlo.
 
 ### Cosa Ho Costruito
 
-Un workflow n8n da **65 nodi** su **Oracle Cloud / PostgreSQL** che:
-
-- **Classifica e valuta** i lead in ingresso con **LLM (Groq)**: pertinenza, intento, segnali di budget
-- **Instrada** le richieste via **triage email**: auto-tag, auto-reply per lead a basso fit, flag di priorità per lead caldi
-- **Aggiorna il CRM (Notion)** automaticamente: nuova pagina lead, stato, punteggio, note di classificazione
-- **Rileva duplicati** tra più canali di acquisizione
-- **Invia notifiche in tempo reale** via **Telegram** per lead prioritari
-- **Gestisce fallback e recovery**: chiamate LLM fallite riprovate, webhook rotti non bloccano la pipeline
+Un workflow n8n da **65 nodi** su **Oracle Cloud / PostgreSQL** che classifica e valuta i lead in ingresso con LLM (Groq) per pertinenza, intento e segnali di budget, instrada le richieste via triage email con auto-tag per lead a basso fit e flag di priorità per quelli caldi, aggiorna il CRM (Notion) automaticamente con stato, punteggio e note di classificazione, rileva duplicati tra più canali di acquisizione, invia notifiche Telegram in tempo reale per i lead seri, gestisce fallback e recovery con retry automatici delle chiamate LLM e webhook anti-crash, e segue i form abbandonati con un meccanismo di recupero automatico che riporta dentro i lead persi prima di completare il funnel.
 
 ### Stack
 
