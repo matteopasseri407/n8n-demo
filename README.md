@@ -66,6 +66,14 @@ Un workflow n8n da **65 nodi** su **Oracle Cloud / PostgreSQL** che:
 
 ---
 
-## Why This Matters
+## Context
+
+This workflow was originally built and operated in production for **ME3Design** (2024–2026), where it handled live B2B lead intake for an additive manufacturing operation. The screenshot shown here is a sanitized copy of the same architecture, now adapted to run a public portfolio funnel at [aienabledops.it](https://www.aienabledops.it).
+
+---
+
+## Perché è rilevante / Why This Matters
+
+Non è il clone di un tutorial. È un workflow che ha girato in produzione su operazioni aziendali reali — il tipo di automazione end-to-end che questo portfolio esiste per dimostrare.
 
 This isn't a tutorial clone. It's a production workflow that ran daily on live business operations — the kind of end-to-end automation this portfolio exists to prove.
