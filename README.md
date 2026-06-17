@@ -1,65 +1,66 @@
-# n8n Lead Qualifier — 65-Node Workflow Demo
+# n8n Lead Qualifier - 65-Node AI Workflow
 
-**Public portfolio proof for AI automation, workflow orchestration, and agentic operations roles.**
-
----
-
-## 🇬🇧 English
-
-### What It Does
-
-A self-hosted n8n workflow that automates the full B2B lead pipeline — from first inquiry to CRM update — with zero manual triage.
-
-### The Problem
-
-The intake form was receiving a flood of inquiries — most of them spam, noise, or barely coherent requests. Manual triage became impossible, and real paying clients were getting buried in the mess. There was also no way to recover leads who started the form but never finished it.
-
-### What I Built
-
-A **65-node** n8n workflow running on **Oracle Cloud / PostgreSQL** that classifies and scores inbound leads with LLM evaluation (Groq) for relevance, intent, and budget signals, routes inquiries via email triage with auto-tags for low-fit leads and priority flags for hot ones, updates the CRM (Notion) automatically with status, score, and classification notes, detects duplicates across multiple intake channels, sends real-time Telegram alerts for serious leads, handles fallback and recovery with automatic LLM retries and crash-proof webhooks, and follows up on abandoned forms with an automated recovery mechanism that brings back leads who dropped off before completing the funnel.
-
-### Stack
-
-`n8n` · `PostgreSQL` · `Groq (LLM)` · `Notion API` · `Telegram Bot API` · `Oracle Cloud` · `Docker`
-
-### Screenshot
+Public portfolio case study for AI automation, workflow orchestration, and operations engineering roles.
 
 ![Lead Qualifier Workflow](screenshots/lead-qualifier-overview.jpg)
 
----
+## Portfolio Snapshot
 
-## 🇮🇹 Italiano
+This is a sanitized public demo of a real n8n lead qualification system originally built and operated for live B2B intake at **ME3Design**.
 
-### Cosa Fa
+It automates the lead pipeline from first inquiry to CRM update:
 
-Un workflow n8n self-hosted che automatizza l'intera pipeline lead B2B — dal primo contatto all'aggiornamento CRM — senza triage manuale.
+- pre-filters noisy or incomplete submissions before using an LLM
+- checks duplicate leads across intake channels
+- enriches submissions with website and social context
+- scores lead quality, intent, and budget signals with Groq
+- updates Notion CRM records with status, score, and notes
+- sends Telegram alerts for high-priority leads and operational issues
+- handles Calendly booking and cancellation events
+- recovers abandoned forms with a delayed follow-up path
+- keeps fallback and recovery paths separate from the happy path
 
-### Il Problema
+## Problem
 
-Il form di contatto riceveva un diluvio di richieste — per lo più spam, rumore o richieste confuse. Il triage manuale era diventato insostenibile e i clienti paganti veri finivano sepolti nel casino. Inoltre non c'era modo di recuperare i lead che iniziavano il form senza completarlo.
+The intake form was receiving too many low-quality, incomplete, or spammy requests for manual triage to stay reliable. Serious B2B opportunities risked being buried, duplicates were hard to track, and abandoned forms had no recovery path.
 
-### Cosa Ho Costruito
+The goal was not just to classify leads, but to make the funnel operationally safer: fewer missed opportunities, fewer duplicate records, and clearer handoffs for serious prospects.
 
-Un workflow n8n da **65 nodi** su **Oracle Cloud / PostgreSQL** che classifica e valuta i lead in ingresso con LLM (Groq) per pertinenza, intento e segnali di budget, instrada le richieste via triage email con auto-tag per lead a basso fit e flag di priorità per quelli caldi, aggiorna il CRM (Notion) automaticamente con stato, punteggio e note di classificazione, rileva duplicati tra più canali di acquisizione, invia notifiche Telegram in tempo reale per i lead seri, gestisce fallback e recovery con retry automatici delle chiamate LLM e webhook anti-crash, e segue i form abbandonati con un meccanismo di recupero automatico che riporta dentro i lead persi prima di completare il funnel.
+## Architecture Highlights
 
-### Stack
+| Area | Implementation |
+| --- | --- |
+| Intake | Webhook-based lead capture with deterministic pre-filtering |
+| Deduplication | Notion lookup before creating or updating lead records |
+| Enrichment | Homepage, about-page, and social-context fetches when available |
+| AI scoring | Groq LLM call with structured parsing and fallback handling |
+| CRM | Notion records updated with lead status, score, classification, and notes |
+| Alerts | Telegram notifications for hot leads, bookings, cancellations, and errors |
+| Booking lifecycle | Calendly booked/canceled webhooks connected to lead records |
+| Recovery | Delayed drop-off checks and follow-up path for incomplete submissions |
+| Resilience | Retry/fallback branches and crash-resistant webhook responses |
 
-`n8n` · `PostgreSQL` · `Groq (LLM)` · `Notion API` · `Telegram Bot API` · `Oracle Cloud` · `Docker`
+## Stack
 
-### Screenshot
+`n8n` · `PostgreSQL` · `Groq` · `Notion API` · `Telegram Bot API` · `Calendly Webhooks` · `Oracle Cloud` · `Docker`
 
-![Lead Qualifier Workflow](screenshots/lead-qualifier-overview.jpg)
+## What This Demonstrates
 
----
+This project is meant to show end-to-end automation judgment, not just prompt writing:
 
-## Context
+- combining deterministic rules with LLM scoring instead of sending everything to the model
+- designing around states, exceptions, retries, duplicates, and recovery
+- integrating multiple operational tools into one workflow
+- building a system that supports real business handoff, not just a form demo
 
-This workflow was originally built and operated in production for **ME3Design** (2024–2026), where it handled live B2B lead intake for an additive manufacturing operation. The screenshot shown here is a sanitized copy of the same architecture, now adapted to run a public portfolio funnel at [aienabledops.it](https://www.aienabledops.it).
+## Public Demo Note
 
----
+No credentials, private customer data, production webhook URLs, or internal records are included in this repository. The screenshot shows a sanitized version of the workflow architecture adapted for portfolio use.
 
-## Perché è rilevante / Why This Matters
+## Sintesi in Italiano
 
-Non è il clone di un tutorial. È un workflow che ha girato in produzione su operazioni aziendali reali — il tipo di automazione end-to-end che questo portfolio esiste per dimostrare.
+Workflow n8n self-hosted da **65 nodi** per qualificare lead B2B, aggiornare il CRM Notion, rilevare duplicati, gestire prenotazioni Calendly, inviare alert Telegram e recuperare form abbandonati.
 
-This isn't a tutorial clone. It's a production workflow that ran daily on live business operations — the kind of end-to-end automation this portfolio exists to prove.
+Il valore non e' solo il lead scoring con LLM, ma l'orchestrazione completa: pre-filtri deterministici, fallback, retry, deduplica, recovery e handoff operativo.
+
+Questo non e' un clone di tutorial: e' una versione pubblica e sanificata di un sistema costruito per operazioni aziendali reali.
