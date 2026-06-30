@@ -1,66 +1,60 @@
-# n8n Lead Qualifier - 65-Node AI Workflow
+# n8n Lead Qualifier (65-node AI workflow)
 
-Public portfolio case study for AI automation, workflow orchestration, and operations engineering roles.
+A public, sanitized case study for AI automation, workflow orchestration, and operations roles.
 
 ![Lead Qualifier Workflow](screenshots/lead-qualifier-overview.jpg)
 
-## Portfolio Snapshot
+## What it is
 
-This is a sanitized public demo of a real n8n lead qualification system originally built and operated for live B2B intake at **ME3Design**.
+A sanitized public demo of a real n8n lead qualification system, originally built and run for live B2B intake at ME3Design. It takes a lead from first inquiry to CRM record:
 
-It automates the lead pipeline from first inquiry to CRM update:
-
-- pre-filters noisy or incomplete submissions before using an LLM
-- checks duplicate leads across intake channels
-- enriches submissions with website and social context
-- scores lead quality, intent, and budget signals with Groq
-- updates Notion CRM records with status, score, and notes
-- sends Telegram alerts for high-priority leads and operational issues
+- pre-filters noisy or incomplete submissions before any LLM call
+- checks for duplicate leads across intake channels
+- enriches a submission with website and social context
+- scores quality, intent, and budget signals with Groq
+- updates the Notion CRM with status, score, and notes
+- sends Telegram alerts for high-priority leads and for operational issues
 - handles Calendly booking and cancellation events
-- recovers abandoned forms with a delayed follow-up path
+- recovers abandoned forms with a delayed follow-up
 - keeps fallback and recovery paths separate from the happy path
 
 ## Problem
 
-The intake form was receiving too many low-quality, incomplete, or spammy requests for manual triage to stay reliable. Serious B2B opportunities risked being buried, duplicates were hard to track, and abandoned forms had no recovery path.
+The intake form took in too many low-quality, incomplete, or spammy requests for manual triage to stay reliable. Serious B2B opportunities got buried, duplicates were hard to track, and an abandoned form went nowhere. The point wasn't only to classify leads. It was to make the funnel safer to operate: fewer missed opportunities, fewer duplicate records, clearer handoffs for the prospects that mattered.
 
-The goal was not just to classify leads, but to make the funnel operationally safer: fewer missed opportunities, fewer duplicate records, and clearer handoffs for serious prospects.
-
-## Architecture Highlights
+## Architecture highlights
 
 | Area | Implementation |
 | --- | --- |
 | Intake | Webhook-based lead capture with deterministic pre-filtering |
-| Deduplication | Notion lookup before creating or updating lead records |
+| Deduplication | Notion lookup before creating or updating a record |
 | Enrichment | Homepage, about-page, and social-context fetches when available |
 | AI scoring | Groq LLM call with structured parsing and fallback handling |
-| CRM | Notion records updated with lead status, score, classification, and notes |
+| CRM | Notion records updated with status, score, classification, and notes |
 | Alerts | Telegram notifications for hot leads, bookings, cancellations, and errors |
-| Booking lifecycle | Calendly booked/canceled webhooks connected to lead records |
-| Recovery | Delayed drop-off checks and follow-up path for incomplete submissions |
-| Resilience | Retry/fallback branches and crash-resistant webhook responses |
+| Booking lifecycle | Calendly booked and canceled webhooks tied to lead records |
+| Recovery | Delayed drop-off checks and a follow-up path for incomplete submissions |
+| Resilience | Retry and fallback branches, crash-resistant webhook responses |
 
 ## Stack
 
 `n8n` · `PostgreSQL` · `Groq` · `Notion API` · `Telegram Bot API` · `Calendly Webhooks` · `Oracle Cloud` · `Docker`
 
-## What This Demonstrates
+## What it shows
 
-This project is meant to show end-to-end automation judgment, not just prompt writing:
+The point is end-to-end automation judgment rather than prompt writing:
 
-- combining deterministic rules with LLM scoring instead of sending everything to the model
-- designing around states, exceptions, retries, duplicates, and recovery
-- integrating multiple operational tools into one workflow
-- building a system that supports real business handoff, not just a form demo
+- deterministic rules paired with LLM scoring, instead of sending everything to the model
+- a design built around states, exceptions, retries, duplicates, and recovery
+- several operational tools wired into one workflow
+- a system that supports a real business handoff, not a form demo
 
-## Public Demo Note
+## Public demo note
 
-No credentials, private customer data, production webhook URLs, or internal records are included in this repository. The screenshot shows a sanitized version of the workflow architecture adapted for portfolio use.
+No credentials, customer data, production webhook URLs, or internal records are in this repository. The screenshot is a sanitized view of the workflow adapted for portfolio use.
 
-## Sintesi in Italiano
+## Sintesi in italiano
 
-Workflow n8n self-hosted da **65 nodi** per qualificare lead B2B, aggiornare il CRM Notion, rilevare duplicati, gestire prenotazioni Calendly, inviare alert Telegram e recuperare form abbandonati.
+Workflow n8n self-hosted da 65 nodi per qualificare lead B2B: aggiorna il CRM Notion, rileva i duplicati, gestisce le prenotazioni Calendly, manda alert Telegram e recupera i form abbandonati.
 
-Il valore non e' solo il lead scoring con LLM, ma l'orchestrazione completa: pre-filtri deterministici, fallback, retry, deduplica, recovery e handoff operativo.
-
-Questo non e' un clone di tutorial: e' una versione pubblica e sanificata di un sistema costruito per operazioni aziendali reali.
+Il valore non è il lead scoring con LLM da solo, ma l'orchestrazione completa: pre-filtri deterministici, fallback, retry, deduplica, recovery e handoff operativo. Non è un clone di tutorial, è la versione pubblica e sanificata di un sistema costruito per operazioni reali.
